@@ -1,4 +1,4 @@
-# Tarea 0
+# Tarea 0. Configuración e inicialización del proyecto
 
 Instalamos docker-compose y componemos nuestro primer servicio django
 
@@ -26,3 +26,18 @@ pepe@ubuntu-4gb-nbg1-3:~/mii_ssbw$ ls
 docker-compose.yml  manage.py  requirements.txt
 Dockerfile          README.md  senderos
 ```
+
+Lanzamos el servicio con:
+
+```bash
+docker-compose up
+```
+
+Y podemos acceder desde fuera con un navegador
+
+![](docs/images/tarea0/0.png)
+
+
+# Tarea 1. Bases de Datos NoSQL, ORMs
+
+Teniendo en cuenta que queremos desplegar luego la app, vamos a usar directamente un servicio de base de datos autogestionado basado en NoSQL, que es MongoAtlas. Como ya he montado Mongo como contenedor muchas veces anteriores, esta parte la delego en un servicio y es más cómodo desplegar luego.
