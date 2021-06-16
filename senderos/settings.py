@@ -12,6 +12,16 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+from os.path import join, dirname
+from dotenv import load_dotenv
+import mongoengine
+
+
+
+dotenv_path = join(dirname(__file__), '.env')
+load_dotenv(dotenv_path)
+uri = os.getenv('MONGO_URI',"noconnection")
+db = mongoengine.connect(host=uri)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -67,6 +77,8 @@ TEMPLATES = [
         },
     },
 ]
+
+print("Cojo de %s" % os.path.join(BASE_DIR, 'templates'))
 
 WSGI_APPLICATION = 'senderos.wsgi.application'
 

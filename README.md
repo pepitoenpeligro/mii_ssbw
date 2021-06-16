@@ -68,5 +68,16 @@ TEMPLATES = [
 ]
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-
 ```
+
+Añadimos una nueva ruta:
+
+```python
+def senderos_home(request):
+    context = {}
+    return render(request, 'index.html', context)
+```
+
+
+Probamos que la ruta senderos funciona y renderiza nuestra primera plantilla.
+![](docs/images/tarea2/0.png)
