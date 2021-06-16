@@ -41,3 +41,32 @@ Y podemos acceder desde fuera con un navegador
 # Tarea 1. Bases de Datos NoSQL, ORMs
 
 Teniendo en cuenta que queremos desplegar luego la app, vamos a usar directamente un servicio de base de datos autogestionado basado en NoSQL, que es MongoAtlas. Como ya he montado Mongo como contenedor muchas veces anteriores, esta parte la delego en un servicio y es más cómodo desplegar luego.
+
+
+![](docs/images/tarea1/mongo.png)
+
+
+# Tarea 2. Django
+
+Ajustamos las rutas de los archivos de plantilla (estructura MTV) y de ficheros estáticos.
+
+```python
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+```
