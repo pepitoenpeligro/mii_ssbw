@@ -12,7 +12,22 @@
         <title>Senderos Pepe</title>
     </head>
     <body>
+        <h1>Home</h1>
         
+        {% if user.is_authenticated %} 
+        <div class="container">
+            <a href="{% url 'dologout' %}" class="btn btn-primary w-100">Logout</a>
+        </div>
+        {% else %}
+        <div class="container">
+            <a href="{% url 'login' %}" class="btn btn-primary w-100">Login</a>
+        </div>
+        {% endif %}
+
+        
+        {% block login %}
+        {% endblock %}
+
         {% block senderos %}
         {% endblock %}
 

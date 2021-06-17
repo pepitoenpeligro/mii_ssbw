@@ -93,4 +93,15 @@ El autor del diseño de las cartas de los senderos es: https://codepen.io/3psy0n
 
 
 # Tarea 4. Formularios y CRUD
+Se ha habilitado dos botones dentro de cada tarjeta para poder editar y eliminar. Además se ha agregado un botón más para poder añadir un nuevo sendero al sistema.
+
+![](docs/images/tarea4/0.png)
+![](docs/images/tarea4/1.png)
+![](docs/images/tarea4/2.png)
+![](docs/images/tarea4/3.png)
+![](docs/images/tarea4/4.png)
+![](docs/images/tarea4/5.png)
+
+
+# Tarea 5. Autentificación, autorización y registro de eventos 
 

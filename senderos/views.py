@@ -6,7 +6,13 @@ from django.forms.models import model_to_dict
 from .models import *
 import pickle
 from django.contrib import messages
-from .forms import SenderoForm
+from .forms import SenderoForm, LoginForm
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import authenticate, login as auth_login
+from django.contrib.auth import logout
+
+
 
 
 def saludo(request):
@@ -94,3 +100,49 @@ def eliminar(request, id):
 	sendero.delete()
 	messages.add_message(request, messages.INFO, 'Sendero eliminado')
 	return  redirect('/senderos')
+
+
+def createuser(request):
+	
+	User.objects.create_user('pepe', 'pepe@pepe.com', 'pepepassword')
+	return  redirect('/senderos')
+
+
+
+def login(request):
+	context = {}
+	context['form']=LoginForm()
+	print("Vas a loguear y tengo qeu renderizar otra pagina")
+	return render(request, 'registration/login.html', context)
+	# return  redirect('/senderos')
+
+
+def dologin(request):
+	print("dologin")
+	context = {}
+	if request.method == 'POST':
+		form = LoginForm(request.POST)
+		if form.is_valid():
+			datos_formulario = form.cleaned_data
+			# datos_formulario['nombre'],
+			usuario = User.objects.get(username=datos_formulario['username'])
+			user2 = authenticate(
+				username=datos_formulario['username'],
+				password=datos_formulario['password']
+			)
+			print(user2)
+			auth_login(request, user2)
+			if usuario.check_password(datos_formulario['password']) is True:
+				print("El usuario es %s" % (usuario))
+				request.session["user"] = usuario.id
+			else:
+				print("El usuario no fue encontrado")
+
+	return  redirect('/senderos')
+
+def dologout(request):
+	context = {}
+	logout(request)
+	return  redirect('/senderos')
+						 
+			

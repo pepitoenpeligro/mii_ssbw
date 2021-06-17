@@ -40,6 +40,8 @@ class Sendero(Document):
 	fotos = ListField(EmbeddedDocumentField(Foto))
 
 
+
+
 	
 
 	

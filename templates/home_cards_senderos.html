@@ -2,6 +2,9 @@
 
 {% extends 'index.html' %}
 
+
+
+
 {% block senderos %}
     {% for sendero in senderos %}
 
@@ -28,6 +31,8 @@
                         <li class="tag__item"><i class="fas fa-tag mr-2"></i>{{ tag }}</li>
                         {% endfor %}
                     </ul>
+                    {% if user.is_authenticated %} 
+                
                     <div class="row mt-4">
                         <div class="col col-lg-2">
                             <a  href="{% url 'editar' id=sendero.id %}" class="mt-2 mb-2 btn btn-info">Editar</a>
@@ -41,6 +46,8 @@
                         
                         
                     </div>
+
+                    {% endif %}
                 </div>
             </article>
     
@@ -48,10 +55,13 @@
 {% endfor %}
 
 
+{% if user.is_authenticated %} 
+       
 <div class="container">
 	<a href="/createSenderoFormular" class="btn btn-primary w-100">Añadir nuevo sendero</a>
 </div>
 
+{% endif %}
 
 
 

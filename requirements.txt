@@ -1,8 +1,10 @@
-Django>=3.0,<4.0
-psycopg2-binary>=2.8
-python-dotenv
-mongoengine
-djangorestframework
-djongo==1.2.38
-dnspython
+Django==3.2.4
+psycopg2-binary==2.9.1
+python-dotenv==0.17.1
+mongoengine==0.23.1
+djangorestframework====3.12.4
+djongo==1.3.6
+dnspython==2.1.0
+# 3.11.4 pymongo
 pymongo[srv]
+sqlparse==0.2.4
