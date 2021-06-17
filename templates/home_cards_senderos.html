@@ -28,8 +28,19 @@
                         <li class="tag__item"><i class="fas fa-tag mr-2"></i>{{ tag }}</li>
                         {% endfor %}
                     </ul>
-                    <a type="button" href="{% url 'editar' id=sendero.id %}" class="btn btn-outline-warning">Editar</a>
-                    
+                    <div class="row mt-4">
+                        <div class="col col-lg-2">
+                            <a  href="{% url 'editar' id=sendero.id %}" class="mt-2 mb-2 btn btn-info">Editar</a>
+
+                        </div>
+                        <div class="col col-lg-2">
+
+                            <a  href="{% url 'eliminar' id=sendero.id %}" class="mt-2 mb-2  btn btn-danger">Eliminar</a>
+                        </div>
+
+                        
+                        
+                    </div>
                 </div>
             </article>
     

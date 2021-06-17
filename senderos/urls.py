@@ -26,6 +26,8 @@ urlpatterns = [
 
     path('createSendero', createSendero, name='createSendero'),
     path('editar/<str:id>', editar, name='editar'),
-    path('editSenderoForm/<str:id>', editSenderoForm, name='editSenderoForm')
+    path('editSenderoForm/<str:id>', editSenderoForm, name='editSenderoForm'),
+
+    path('eliminar/<str:id>', eliminar, name='eliminar')
 
 ]

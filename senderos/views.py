@@ -82,6 +82,15 @@ def editSenderoForm(request, id):
 			sendero.save()
 			sendero.fotos = [Foto(alt=datos_formulario['alt'], url=datos_formulario['url'])]
 			sendero.save()
-			messages.add_message(request, messages.INFO, 'Sendero modificado correctamente')
+			messages.add_message(request, messages.INFO, 'Sendero modificado')
 		
+	return  redirect('/senderos')
+
+
+def eliminar(request, id):
+	context = {}
+	print("Eliminando el sendero con id: %s" % (id))
+	sendero = Sendero.objects.get(id=id)
+	sendero.delete()
+	messages.add_message(request, messages.INFO, 'Sendero eliminado')
 	return  redirect('/senderos')
