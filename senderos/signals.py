@@ -14,7 +14,7 @@ def log_user_login(sender, request, user, **kwargs):
  
 @receiver(user_login_failed)
 def log_user_login_failed(sender, credentials, request, **kwargs):
-    logger.info(user.email + ' ha intentado iniciar sesion de forma erronea')
+    logger.info('Hubo un intento de inicio de sesion invalido')
     print('user {} logged in failed through page {}'.format(credentials.get('username'), request.META.get('HTTP_REFERER')))
  
  
