@@ -89,6 +89,8 @@ Iniciamos la recuperación de los datos de cada uno de los senderos mostrando la
 
 ![](docs/images/tarea3/0.png)
 
+El autor del diseño de las cartas de los senderos es: https://codepen.io/3psy0n/pen/LYpajmX
+
 
 # Tarea 4. Formularios y CRUD
 

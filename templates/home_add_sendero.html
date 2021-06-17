@@ -1,0 +1,22 @@
+{% extends 'index.html' %}
+
+{% block add %}
+<h1>Añadir un sendero</h1>
+
+<div class="card">
+    <div class="card-header">
+    <h3>Introduce los datos de un nuevo sendero</h3>
+    </div>
+    <div class="card-body">
+        <form action="{% url 'createSendero' %}" method="post" enctype="multipart/form-data" class="form">  
+            {% csrf_token %}
+            <table>
+                {{ form.as_table }}
+            </table>
+            <button type="submit" href="#" class="btn mt-2 w-100 btn-outline-dark">Registrar</a>
+        </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

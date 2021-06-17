@@ -1,27 +1,24 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
   <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+        <link href="{% static 'boostrap/css/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% static 'pepe/css/style.css' %}" rel="stylesheet">
+
         <title>Senderos Pepe</title>
     </head>
     <body>
-        <h1>Senderos Pepe</h1>
+        
+        {% block senderos %}
+        {% endblock %}
 
-        <div>
-            {% for sendero in senderos %}
-                <div>
-                    <div>
-                        <h4>{{ sendero.nombre }}</h5>
-                        <p>{{ sendero.descripcion }} </p>
-                        
-                        <img src={{ sendero.fotos.0.url }}>
-                        
-                    </div>
+        {% block add %}
+        {% endblock %}
 
-                </div>
-            {% endfor %}
-        </div>
     </body>
+    
 </html>

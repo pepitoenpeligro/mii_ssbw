@@ -15,10 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from senderos.views import saludo, senderos_home
+from .views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('saludo/', saludo),
-    path('senderos/', senderos_home)
+    path('senderos/', senderos_home),
+
+    path('createSenderoFormular', createSenderoFormular),
+
+    path('createSendero', createSendero, name='createSendero'),
+    path('editar/<str:id>', editar, name='editar'),
+    path('editSenderoForm/<str:id>', editSenderoForm, name='editSenderoForm')
+
 ]
