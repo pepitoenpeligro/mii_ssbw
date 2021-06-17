@@ -3,4 +3,4 @@ psycopg2-binary>=2.8
 python-dotenv
 mongoengine
 djangorestframework
-djongo==1.2.38.
+djongo==1.2.38

@@ -15,7 +15,11 @@
                     <div>
                         <h4>{{ sendero.nombre }}</h5>
                         <p>{{ sendero.descripcion }} </p>
+                        
+                        <img src={{ sendero.fotos.0.url }}>
+                        
                     </div>
+
                 </div>
             {% endfor %}
         </div>

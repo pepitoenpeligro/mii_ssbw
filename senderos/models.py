@@ -3,6 +3,7 @@ from django.db import models
 from rest_framework import serializers
 from django.core.validators import FileExtensionValidator
 from mongoengine import *
+import json
 
 
 # Modelo Comentario
@@ -37,6 +38,18 @@ class Sendero(Document):
 	tags = ListField(StringField(max_length=30))
 	comentarios = ListField(EmbeddedDocumentField(Comentario))
 	fotos = ListField(EmbeddedDocumentField(Foto))
+
+	def toJSON(self):
+		return json.dumps(self,
+		 	default=lambda o: o.__dict__, 
+			sort_keys=True, indent=4)
+
+	def __getstate__(self):
+		return self.pk
+
+	
+
+	
 
 
 

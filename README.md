@@ -85,6 +85,10 @@ Probamos que la ruta senderos funciona y renderiza nuestra primera plantilla.
 
 # Tarea 3. CSS y estructura básica
 
+Iniciamos la recuperación de los datos de cada uno de los senderos mostrando la imagen de cada una de ellas. Tenemos que mejorar el diseño con CSS
+
+![](docs/images/tarea3/0.png)
 
 
 # Tarea 4. Formularios y CRUD
+
