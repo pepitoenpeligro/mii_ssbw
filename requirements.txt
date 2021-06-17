@@ -4,3 +4,5 @@ python-dotenv
 mongoengine
 djangorestframework
 djongo==1.2.38
+dnspython
+pymongo[srv]
