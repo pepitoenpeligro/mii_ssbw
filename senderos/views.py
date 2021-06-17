@@ -11,6 +11,16 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login as auth_login
 from django.contrib.auth import logout
+from rest_framework.response import Response
+from .models import *
+from django.http import Http404, JsonResponse
+from rest_framework.parsers import JSONParser
+
+from rest_framework.views import APIView
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
+
+from rest_framework import status
 
 
 
@@ -147,5 +157,77 @@ def dologout(request):
 	context = {}
 	logout(request)
 	return  redirect('/senderos')
-						 
-			
+
+
+# path('api/senderos', getsenderos, name="getsenderos")
+# def getsenderos(request):
+# 	context = {}
+# 	senderos = Sendero.objects.all()
+# 	serial = SenderoSerializer(senderos, many=True)
+# 	return JsonResponse({'senderos': serial.data}, json_dumps_params={'ensure_ascii': False})
+
+# path('api/sendero/<str:id>', getsendero, name="getsendero"),		 
+# def getsendero(request, id):
+# 	context = {}
+# 	sendero = Sendero.objects.get(id=id)
+# 	print("Sendero: %s" % sendero)
+# 	#data = JSONParser().parse(sendero)
+# 	serial = SenderoSerializer(sendero)
+# 	return JsonResponse({'sendero': serial.data}, json_dumps_params={'ensure_ascii': False})
+
+
+
+class SenderoApi(APIView):
+	# permission_classes = (IsAuthenticatedOrReadOnly,)
+	def get(self, request, id):
+		sendero = Sendero.objects.get(id=id)
+		print("Sendero: %s" % sendero)
+		#data = JSONParser().parse(sendero)
+		serial = SenderoSerializer(sendero)
+		return JsonResponse({'sendero': serial.data}, json_dumps_params={'ensure_ascii': False})
+	
+	def put(self, request, id):
+		try:
+			sendero = Sendero.objects.get(id=id)
+			print("Encontre el sendero %s" % sendero)
+			print("Datos %s" % request.data)
+			serializer = SenderoSerializer(sendero, data=request.data)
+			if serializer.is_valid():
+				serializer.save()
+				return Response(serializer.data)
+			return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+		except:
+			raise Http404
+
+	def delete(self, request, id):
+		try:
+			sendero = Sendero.objects.get(id=id)
+			sendero.delete()
+			serializer = SenderoSerializer(sendero)
+			return Response(status=status.HTTP_202_ACCEPTED)
+		except:
+			raise Http404
+
+
+class SenderosApi(APIView):
+	# "detail": "Authentication credentials were not provided."
+	# permission_classes = (IsAuthenticatedOrReadOnly,)
+	def get(self, request):
+		senderos = Sendero.objects.all()
+		serial = SenderoSerializer(senderos, many=True)
+		return JsonResponse({'senderos': serial.data}, json_dumps_params={'ensure_ascii': False})
+
+	def post(self, request):
+		serial = SenderoSerializer(data=request.data)
+		if serial.is_valid():
+			serial.save()
+			return Response(serial.data, status=status.HTTP_201_CREATED)
+		return Response(serial.errors, status=status.HTTP_400_BAD_REQUEST)
+
+	# def post(self, request):
+	# 	serializer = ExcursionSerializer(data=request.data)
+
+	# 	if serializer.is_valid():
+	# 		serializer.save()
+	# 		return Response(serializer.data, status=status.HTTP_201_CREATED)
+	# 	return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

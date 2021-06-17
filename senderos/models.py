@@ -17,8 +17,8 @@ class Comentario(EmbeddedDocument):
 # @alt: string que define la descripción de la imagen
 # @url: string que define la ubicación de la foto (url)
 class Foto(EmbeddedDocument):
-	alt = StringField(required=True)
-	url = StringField(required=True)
+	alt = StringField()
+	url = StringField()
 
 # Modelo Sendero
 # @nombre: nombre del sendero
@@ -41,44 +41,70 @@ class Sendero(Document):
 
 
 
-
-	
-
-	
-
+class FotoSerializer(serializers.Serializer):
+	alt = serializers.CharField(max_length=256)
+	url = serializers.CharField(max_length=256)
 
 
 
 class SenderoSerializer(serializers.Serializer):
 	# Identificador único
-	id = serializers.UUIDField()
+	id = serializers.UUIDField(required=False)
 	nombre = serializers.CharField(max_length=80)
 	descripcion = serializers.CharField(max_length=1024)
 	likes = serializers.IntegerField(default=0)
-	url = serializers.CharField(max_length=128)
+	duracion = serializers.IntegerField(default=0)
+	visitas = serializers.IntegerField(default=0)
+	fotos = serializers.ListField(child=FotoSerializer())
 
 	def create(self, validated_data):
-		sendero = Sendero(nombre = validated_data['nombre'], descripcion=validated_data['descripcion']).save()
+		print("CREANDO NUEVO SENDERO")
+		print(validated_data)
+		sendero = Sendero(nombre = validated_data['nombre'], descripcion=validated_data['descripcion'])
 
-		if validated_data.get('foto', None) is not None:
-			if validated_data.get('pie', None) is not None:
-				# Tomamos del mapa validated_data el campo foto y alt para crear el objeto foto
-				sendero.foto.append(Foto(url=validated_data['foto'], alt=validated_data['alt']))
-			else:
-				sendero.foto.append(Foto(url=validated_data['foto'], alt=None))
+		if validated_data.get('fotos', None) is not None:
+
+			print(validated_data)
+			
+			# Tomamos del mapa validated_data el campo foto y alt para crear el objeto foto
+			sendero.fotos.append(Foto(url=validated_data['fotos'][0]['url'], alt=validated_data['fotos'][0]['alt']))
+		else:
+			sendero.fotos.append(Foto(url="https://www.fundaciocaixaltea.com/wp-content/uploads/2018/01/default-profile.png", alt=""))
 			
 		sendero.save()
 		return sendero
 
 	def update(self, sendero, validated_data):
+		print("Updating")
+		nombre = serializers.CharField(max_length=80)
+		descripcion = serializers.CharField(max_length=1024)
+		likes = serializers.IntegerField(default=0)
+		duracion = serializers.IntegerField(default=0)
+		visitas = serializers.IntegerField(default=0)
+		fotos = serializers.ListField(child=FotoSerializer())
 		sendero.nombre = validated_data['nombre']
 		sendero.descripcion = validated_data['descripcion']
+		sendero.likes = validated_data['likes']
+		sendero.duracion = validated_data['duracion']
+		sendero.visitas = validated_data['visitas']
+		
+		if validated_data.get('fotos', None) is not None:
 
-		if validated_data.get('foto', None) is not None:
-			if validated_data.get('pie', None) is not None:
-				sendero.foto.append(Foto(url=validated_data['url'], alt=validated_data['alt']))
-			else:
-				sendero.foto.append(Foto(url=validated_data['url'], alt=None))
+			print(validated_data)
+			
+			# Tomamos del mapa validated_data el campo foto y alt para crear el objeto foto
+			sendero.fotos.append(Foto(url=validated_data['fotos'][0]['url'], alt=validated_data['fotos'][0]['alt']))
+		else:
+			sendero.fotos.append(Foto(url="https://www.fundaciocaixaltea.com/wp-content/uploads/2018/01/default-profile.png", alt=""))
+
+		# sendero.nombre = nombre
+		# sender.descripcion = descripcion
+
+		# if validated_data.get('fotos', None) is not None:
+
+		# 	sendero.fotos.append(Foto(url=validated_data['url'], alt=validated_data['alt']))
+		# else:
+		# 	sendero.fotos.append(Foto(url=validated_data['url'], alt=""))
 			
 		sendero.save()
 		return sendero

@@ -1,3 +1,0 @@
-INFO [senderos.signals:10] juan@juan.com ha iniciado sesion <WSGIRequest: POST '/dologin/'>
-INFO [senderos.signals:23] juan@juan.com ha finalizado la sesión
-INFO [senderos.signals:10] pepe@pepe.com ha iniciado sesion <WSGIRequest: POST '/dologin/'>

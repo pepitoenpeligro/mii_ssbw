@@ -34,7 +34,13 @@ urlpatterns = [
 
     path('login/', login, name='login'),
     path('dologin/', dologin, name='dologin'),
-    path('dologout', dologout, name='dologout')
+    path('dologout', dologout, name='dologout'),
+
+    path('api/senderos', SenderosApi.as_view(), name="getsenderos"),
+    path('api/sendero/<str:id>', SenderoApi.as_view(), name="getsendero"),
+    #path('api/senderos', postsenderos, name="postsenderos")
+
+
     
 
 ]
