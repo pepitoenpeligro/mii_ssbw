@@ -81,3 +81,10 @@ def senderos_home(request):
 
 Probamos que la ruta senderos funciona y renderiza nuestra primera plantilla.
 ![](docs/images/tarea2/0.png)
+
+
+# Tarea 3. CSS y estructura básica
+
+
+
+# Tarea 4. Formularios y CRUD

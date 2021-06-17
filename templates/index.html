@@ -8,5 +8,16 @@
     </head>
     <body>
         <h1>Senderos Pepe</h1>
+
+        <div>
+            {% for sendero in senderos %}
+                <div>
+                    <div>
+                        <h4>{{ sendero.nombre }}</h5>
+                        <p>{{ sendero.descripcion }} </p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
     </body>
 </html>

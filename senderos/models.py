@@ -42,8 +42,8 @@ class Sendero(Document):
 
 
 class SenderoSerializer(serializers.Serializer):
-    # Identificador único
-    id = serializers.UUIDField()
+	# Identificador único
+	id = serializers.UUIDField()
 	nombre = serializers.CharField(max_length=80)
 	descripcion = serializers.CharField(max_length=1024)
 	likes = serializers.IntegerField(default=0)
@@ -54,7 +54,7 @@ class SenderoSerializer(serializers.Serializer):
 
 		if validated_data.get('foto', None) is not None:
 			if validated_data.get('pie', None) is not None:
-                # Tomamos del mapa validated_data el campo foto y alt para crear el objeto foto
+				# Tomamos del mapa validated_data el campo foto y alt para crear el objeto foto
 				sendero.foto.append(Foto(url=validated_data['foto'], alt=validated_data['alt']))
 			else:
 				sendero.foto.append(Foto(url=validated_data['foto'], alt=None))

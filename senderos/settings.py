@@ -18,9 +18,10 @@ import mongoengine
 
 
 
-dotenv_path = join(dirname(__file__), '.env')
+dotenv_path = join(dirname(__file__), '../.env')
 load_dotenv(dotenv_path)
 uri = os.getenv('MONGO_URI',"noconnection")
+
 db = mongoengine.connect(host=uri)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
