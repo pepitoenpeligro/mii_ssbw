@@ -8,3 +8,5 @@ dnspython==2.1.0
 # 3.11.4 pymongo
 pymongo[srv]
 sqlparse==0.2.4
+django-allauth==0.44.0
+djangorestframework-simplejwt==4.7.1

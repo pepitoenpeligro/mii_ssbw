@@ -50,7 +50,8 @@ INSTALLED_APPS = [
 	'django.contrib.contenttypes',
 	'django.contrib.sessions',
 	'django.contrib.messages',
-	'django.contrib.staticfiles'
+	'django.contrib.staticfiles',
+	'senderos'
 ]
 
 MIDDLEWARE = [
@@ -170,7 +171,7 @@ LOGGING = {
 			'level': 'INFO',
 			'class': 'logging.FileHandler',
 			'filename': os.path.join(BASE_DIR, LOG_FILE),
-			'formatter': 'verbose',
+			'formatter': 'simple',
 			'mode': 'w'
 			},
 		'console': {
