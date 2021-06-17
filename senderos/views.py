@@ -39,7 +39,7 @@ def createSendero(request):
 	context = {}
 	if request.method == 'POST':
 		form = SenderoForm(request.POST)
-		if form.is_valid():
+		if form.is_valid() and request.user.is_authenticated and  request.user.is_staff:
 			datos_formulario = form.cleaned_data
 			nuevoSendero = Sendero(nombre=datos_formulario['nombre'],
 						 descripcion=datos_formulario['descripcion'],
@@ -77,7 +77,7 @@ def editSenderoForm(request, id):
 	
 	if request.method == 'POST':
 		form = SenderoForm(request.POST)
-		if form.is_valid():
+		if form.is_valid() and request.user.is_authenticated and  request.user.is_staff:
 			print("Vamos a modificar un sendero")
 			print(str(form.cleaned_data))
 			datos_formulario = form.cleaned_data
@@ -94,17 +94,20 @@ def editSenderoForm(request, id):
 
 
 def eliminar(request, id):
-	context = {}
-	print("Eliminando el sendero con id: %s" % (id))
-	sendero = Sendero.objects.get(id=id)
-	sendero.delete()
-	messages.add_message(request, messages.INFO, 'Sendero eliminado')
+	if request.user.is_authenticated and  request.user.is_staff:
+		context = {}
+		print("Eliminando el sendero con id: %s" % (id))
+		sendero = Sendero.objects.get(id=id)
+		sendero.delete()
+		messages.add_message(request, messages.INFO, 'Sendero eliminado')
+
 	return  redirect('/senderos')
 
 
 def createuser(request):
-	
-	User.objects.create_user('pepe', 'pepe@pepe.com', 'pepepassword')
+	# Es superuser
+	User.objects.create_user('pepe', 'pepe@pepe.com', '201196', is_staff=True, first_name="Pepe", last_name="Córdoba")
+	User.objects.create_user('juan', 'juan@juan.com', '201196', is_staff=False, first_name="Juan", last_name="Álava")
 	return  redirect('/senderos')
 
 
