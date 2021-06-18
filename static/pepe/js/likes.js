@@ -26,7 +26,7 @@ $(document).ready(function () {
             postcard[i].classList.toggle('t-dark');
         }
 
-        $('.mode').innerHTML="Dark Mode"
+        
     });
 
 
