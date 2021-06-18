@@ -28,7 +28,7 @@
                     <div class="postcard__subtitle small">
                         <time datetime="2020-05-25 12:00:00">
                             <i class="fas fa-calendar-alt mr-2">
-                                
+
                             </i> {{ sendero.duracion}} minutos , <span class="plikes" id={{ sendero.id }} >{{ sendero.likes }} </span> me gustas
                         </time>
                     </div>
@@ -52,12 +52,12 @@
                 
                     <div class="row mt-4">
                         <div class="col col-lg-2">
-                            <a  class="mt-2 mb-2 btn btn-info">Editar</a>
+                            <a  href="{% url 'editar' id=sendero.id %}" class="mt-2 mb-2 btn btn-info">Editar</a>
 
                         </div>
                         <div class="col col-lg-2">
 
-                            <a  class="mt-2 mb-2  btn btn-danger">Eliminar</a>
+                            <a  href="{% url 'eliminar' id=sendero.id %}" class="mt-2 mb-2  btn btn-danger eliminar" id={{ sendero.id }}>Eliminar</a>
                         </div>
 
                         
