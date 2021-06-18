@@ -1,68 +1,97 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-  <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-        <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-        <link href="{% static 'pepe/css/style.css' %}" rel="stylesheet">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-        <script src="{% static 'jquery/jquery-3.6.0.js' %}"></script>
+    
+    <link href="{% static 'pepe/css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    
 
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css" />
+    <script src="{% static 'jquery/jquery-3.6.0.js' %}"></script>
 
-        
-            
-        </script>
-
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css" />
 
 
 
-        <title>Senderos Pepe</title>
-    </head>
-    <body>
-        
+    </script>
 
-        <h1>Home</h1>
-        
 
-        {% if user.is_authenticated %} 
-        <div class="container">
-            <a href="{% url 'dologout' %}" class="btn btn-primary w-100">Logout</a>
+
+
+    <title>Senderos Pepe</title>
+</head>
+
+<body>
+
+
+    <div class="container mt-4 mb-4">
+        <div class="row"></br></br></div>
+        <div class="row">
+            <div class="col"><h1>Home</h1></div>
+            <div class="col">
+                <div class="theme-switch-wrapper">
+                    <label class="theme-switch" for="checkbox">
+                        <input type="checkbox" id="checkbox" />
+                        <div class="slider round"></div>
+                    </label>
+                  <label style="margin-left: 10px;" class="mode">Select Mode</label>
+                </div>
+
+            </div>
         </div>
-        {% else %}
-        <div class="container">
-            <a href="{% url 'login' %}" class="btn btn-primary w-100">Login</a>
-        </div>
-        {% endif %}
+
 
         
-        {% block login %}
-        {% endblock %}
+        
+    </div>
 
-        {% block senderos %}
-        {% endblock %}
+    
 
-        {% block add %}
-        {% endblock %}
+    
 
-
+    
 
 
-        <script src="{% static 'bootstrap/js/bootstrap.js' %}" ></script>
+    {% if user.is_authenticated %}
+    <div class="container">
+        <a href="{% url 'dologout' %}" class="btn btn-primary w-100">Logout</a>
+    </div>
+    {% else %}
+    <div class="container">
+        <a href="{% url 'login' %}" class="btn btn-primary w-100">Login</a>
+    </div>
+    {% endif %}
 
-        <script src="{% static 'pepe/js/likes.js' %}"></script>
+
+    {% block login %}
+    {% endblock %}
+
+    {% block senderos %}
+    {% endblock %}
+
+    {% block add %}
+    {% endblock %}
 
 
-        <script>
 
-            $('.prueba').click(function() {
-                $('.prueba').animate({ left: '+=10px' }, 500);
-            });
-            
+
+    <script src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
+
+    <script src="{% static 'pepe/js/likes.js' %}"></script>
+
+
+    <script>
+
+        $('.prueba').click(function () {
+            $('.prueba').animate({ left: '+=10px' }, 500);
+        });
+
                         // $('.prueba').click(function(){
                         //     $('.prueba').animate({ 
                         //     width: "70%",
@@ -72,10 +101,10 @@
                         //     borderWidth: "10px"
                         //   }, 3000 );
                         // });
-                    </script>
+    </script>
 
-        
-        
-    </body>
-    
+
+
+</body>
+
 </html>

@@ -1,6 +1,36 @@
 $(document).ready(function () {
 
 
+
+
+    $('#checkbox').click(function(){
+        var element = document.body;         
+        element.classList.toggle("dark-mode"); 
+
+        var postcard = document.getElementsByClassName('postcard');
+        for (var i = 0; i < postcard.length; i++ ) {
+            postcard[i].classList.toggle('light');
+            postcard[i].classList.toggle('dark');
+        }
+
+
+        var postcard = document.getElementsByClassName('postcard__text');
+        for (var i = 0; i < postcard.length; i++ ) {
+            postcard[i].classList.toggle('t-light');
+            postcard[i].classList.toggle('t-dark');
+        }
+
+        var postcard = document.getElementsByClassName('postcard__title');
+        for (var i = 0; i < postcard.length; i++ ) {
+            postcard[i].classList.toggle('t-light');
+            postcard[i].classList.toggle('t-dark');
+        }
+
+        $('.mode').innerHTML="Dark Mode"
+    });
+
+
+
     $(".eliminar").click(function(e) {
         var link = this;
     
