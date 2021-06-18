@@ -40,7 +40,7 @@ urlpatterns = [
     path('api/sendero/<str:id>', SenderoApi.as_view(), name="getsendero"),
     #path('api/senderos', postsenderos, name="postsenderos")
 
-
-    
+    path('addlike/<str:id>', addlike, name='addlike'),
+    path('substractlike/<str:id>', substractlike, name='substractlike')
 
 ]

@@ -6,16 +6,26 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-        <link href="{% static 'boostrap/css/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
         <link href="{% static 'pepe/css/style.css' %}" rel="stylesheet">
 
         <script src="{% static 'jquery/jquery-3.6.0.js' %}"></script>
 
+        
+            
+        </script>
+
+
+
+
         <title>Senderos Pepe</title>
     </head>
     <body>
+        
+
         <h1>Home</h1>
         
+
         {% if user.is_authenticated %} 
         <div class="container">
             <a href="{% url 'dologout' %}" class="btn btn-primary w-100">Logout</a>
@@ -36,8 +46,33 @@
         {% block add %}
         {% endblock %}
 
-        <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}" ></script>
 
+
+
+        <script src="{% static 'bootstrap/js/bootstrap.js' %}" ></script>
+
+        <script src="{% static 'pepe/js/likes.js' %}"></script>
+
+
+        <script>
+
+            $('.prueba').click(function() {
+                $('.prueba').animate({ left: '+=10px' }, 500);
+            });
+            
+                        // $('.prueba').click(function(){
+                        //     $('.prueba').animate({ 
+                        //     width: "70%",
+                        //     opacity: 0.4,
+                        //     marginLeft: "0.6in",
+                        //     fontSize: "3em", 
+                        //     borderWidth: "10px"
+                        //   }, 3000 );
+                        // });
+                    </script>
+
+        
+        
     </body>
     
 </html>

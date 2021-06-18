@@ -231,3 +231,16 @@ class SenderosApi(APIView):
 	# 		serializer.save()
 	# 		return Response(serializer.data, status=status.HTTP_201_CREATED)
 	# 	return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+def addlike(request, id):
+	sendero= Sendero.objects.get(id=id)
+	sendero.likes = sendero.likes+1
+	sendero.save()
+	return JsonResponse({"likes": sendero.likes}, status=202)
+
+def substractlike(request, id):
+	sendero= Sendero.objects.get(id=id)
+	sendero.likes = sendero.likes-1
+	sendero.save()
+	return JsonResponse({"likes": sendero.likes}, status=202)
