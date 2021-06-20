@@ -11,3 +11,4 @@ dnspython
 sqlparse==0.2.4
 django-allauth==0.44.0
 djangorestframework-simplejwt==4.7.1
+django-cors-headers

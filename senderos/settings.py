@@ -42,6 +42,9 @@ ALLOWED_HOSTS = ['*',]
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
 
 
+CORS_ORIGIN_ALLOW_ALL = True 
+CORS_ALLOW_CREDENTIALS = True
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -51,7 +54,8 @@ INSTALLED_APPS = [
 	'django.contrib.sessions',
 	'django.contrib.messages',
 	'django.contrib.staticfiles',
-	'senderos'
+	'senderos',
+	'corsheaders'
 ]
 
 MIDDLEWARE = [
@@ -62,6 +66,8 @@ MIDDLEWARE = [
 	'django.contrib.auth.middleware.AuthenticationMiddleware',
 	'django.contrib.messages.middleware.MessageMiddleware',
 	'django.middleware.clickjacking.XFrameOptionsMiddleware',
+	'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'senderos.urls'
