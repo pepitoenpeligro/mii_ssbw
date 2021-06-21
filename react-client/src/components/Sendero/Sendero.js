@@ -4,13 +4,13 @@ import './Sendero.css'
 import React, { Component, useState , useEffect} from "react";
 
 
-const Sendero = (props) => {
+const Sendero = (props, dispatch) => {
 
-    const [data, setData] = useState(props);
+    const [data, setData] = useState();
 
     useEffect(() => {
         setData(props);
-      }, [props]);
+    }, props);
 
     const handleSubirLikes =  (event) => {
         console.log(event.target.id)
@@ -25,9 +25,14 @@ const Sendero = (props) => {
             console.log(response);
             let datos = response.json();
             datos.then(val => {
-                console.log('Likes: ' , val);
-                props.data.likes = val;
-                setData(props)
+                console.log('Likes: ');
+                console.log(val.likes);
+                //props.data.likes = val.likes;
+                setData({... props.data.likes = val.likes})
+                console.log("Lo que hay: ", props.data);
+                
+
+                //setData(props)
                 console.log("ahora tiene:" , props.data.likes )
             })
             
@@ -51,8 +56,8 @@ const Sendero = (props) => {
             let datos = response.json();
             datos.then(val => {
                 console.log('Likes: ' , val);
-
-                props.data.likes = val;
+                setData({... props.data.likes = val.likes})
+                //props.data.likes = val;
             })
         })
         .catch(error =>{
@@ -102,7 +107,7 @@ const Sendero = (props) => {
                     </ul>
                     {/* {% if user.is_authenticated %}  */}
                 
-                    <div className="row mt-4">
+                    {/* <div className="row mt-4">
                         <div className="col col-lg-2">
                             <a  href="{% url 'editar' id=sendero.id %}" className="mt-2 mb-2 btn btn-info">Editar</a>
 
@@ -114,7 +119,7 @@ const Sendero = (props) => {
 
                         
                         
-                    </div>
+                    </div> */}
 
                     {/* {% endif %} */}
                 </div>
