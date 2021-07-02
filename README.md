@@ -1,3 +1,18 @@
+# Demo
+
+## Likes and Night Mode
+![](videos/likesAndNightMode.mp4)
+
+## Login CRUD and Staff
+![](videos/loginCrudAndStaff.mp4)
+
+## React SPA
+![](videos/react.mp4)
+
+
+
+
+
 # Tarea 0. Configuración e inicialización del proyecto
 
 Instalamos docker-compose y componemos nuestro primer servicio django

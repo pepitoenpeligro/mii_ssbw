@@ -71,8 +71,8 @@ const Sendero = (props, dispatch) => {
 
 
     return (
-        <main class="container py-2">
-            <div class="mt-4 mb-2" ></div>     
+        <main className="container py-2">
+            <div className="mt-4 mb-2" ></div>     
 
             
     

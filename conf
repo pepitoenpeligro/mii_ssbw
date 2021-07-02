@@ -1,0 +1,13 @@
+server {
+    listen 80 default_server;
+
+    location /static/ {
+            alias /var/www/static/;
+    }
+
+    location / {
+        proxy_pass http://senderos:3008;
+        proxy_set_header X-Forwarded-Host $server_name;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+}
