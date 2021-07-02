@@ -1,14 +1,16 @@
-# Demo
+# Demo App
 
-## Likes and Night Mode
-![](videos/likesAndNightMode.mp4)
+## Likes and Night Mode
+![]([videos/likesAndNightMode.mp4](https://user-images.githubusercontent.com/14912971/124291600-035c0f00-db55-11eb-8025-fd3dde81abda.mp4))
 
 ## Login CRUD and Staff
-![](videos/loginCrudAndStaff.mp4)
+![]([videos/loginCrudAndStaff.mp4](https://user-images.githubusercontent.com/14912971/124291597-022ae200-db55-11eb-9c80-a4ae40a43432.mp4))
 
 ## React SPA
-![](videos/react.mp4)
+![]([videos/react.mp4](https://user-images.githubusercontent.com/14912971/124291589-00f9b500-db55-11eb-8c27-00e3ca276cc9.mp4))
 
+
+*If videos are not available, please check _videos_ folder*
 
 
 
