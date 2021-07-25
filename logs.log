@@ -10,3 +10,111 @@ INFO [senderos.signals:10] pepe@pepe.com ha iniciado sesion <WSGIRequest: POST '
 INFO [senderos.signals:23] pepe@pepe.com ha finalizado la sesión
 INFO [senderos.signals:10] juan@juan.com ha iniciado sesion <WSGIRequest: POST '/dologin/'>
 INFO [senderos.signals:10] pepe@pepe.com ha iniciado sesion <WSGIRequest: POST '/dologin/'>
+INFO [senderos.signals:23] pepe@pepe.com ha finalizado la sesión
+INFO [senderos.signals:10] pepe@pepe.com ha iniciado sesion <WSGIRequest: POST '/dologin/'>
+INFO [senderos.signals:23] pepe@pepe.com ha finalizado la sesión
+INFO [senderos.signals:10] juan@juan.com ha iniciado sesion <WSGIRequest: POST '/dologin/'>
+ERROR [django.request:224] Internal Server Error: /addlike/60c7b37a6415dbada44764d0
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mongoengine/queryset/base.py", line 266, in get
+    result = next(queryset)
+  File "/usr/local/lib/python3.8/site-packages/mongoengine/queryset/base.py", line 1572, in __next__
+    raw_doc = next(self._cursor)
+  File "/usr/local/lib/python3.8/site-packages/pymongo/cursor.py", line 1215, in next
+    raise StopIteration
+StopIteration
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/code/senderos/views.py", line 237, in addlike
+    sendero= Sendero.objects.get(id=id)
+  File "/usr/local/lib/python3.8/site-packages/mongoengine/queryset/base.py", line 269, in get
+    raise queryset._document.DoesNotExist(msg)
+senderos.models.DoesNotExist: Sendero matching query does not exist.
+ERROR [django.request:224] Internal Server Error: /addlike/60c7b37a6415dbada44764d0
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mongoengine/queryset/base.py", line 266, in get
+    result = next(queryset)
+  File "/usr/local/lib/python3.8/site-packages/mongoengine/queryset/base.py", line 1572, in __next__
+    raw_doc = next(self._cursor)
+  File "/usr/local/lib/python3.8/site-packages/pymongo/cursor.py", line 1215, in next
+    raise StopIteration
+StopIteration
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/code/senderos/views.py", line 237, in addlike
+    sendero= Sendero.objects.get(id=id)
+  File "/usr/local/lib/python3.8/site-packages/mongoengine/queryset/base.py", line 269, in get
+    raise queryset._document.DoesNotExist(msg)
+senderos.models.DoesNotExist: Sendero matching query does not exist.
+ERROR [django.server:161] "GET /addlike/60c7b37a6415dbada44764d0 HTTP/1.1" 500 73642
+ERROR [django.server:161] "GET /addlike/60c7b37a6415dbada44764d0 HTTP/1.1" 500 73642
+ERROR [django.request:224] Internal Server Error: /addlike/60c7b37a6415dbada44764d0
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mongoengine/queryset/base.py", line 266, in get
+    result = next(queryset)
+  File "/usr/local/lib/python3.8/site-packages/mongoengine/queryset/base.py", line 1572, in __next__
+    raw_doc = next(self._cursor)
+  File "/usr/local/lib/python3.8/site-packages/pymongo/cursor.py", line 1215, in next
+    raise StopIteration
+StopIteration
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/code/senderos/views.py", line 237, in addlike
+    sendero= Sendero.objects.get(id=id)
+  File "/usr/local/lib/python3.8/site-packages/mongoengine/queryset/base.py", line 269, in get
+    raise queryset._document.DoesNotExist(msg)
+senderos.models.DoesNotExist: Sendero matching query does not exist.
+ERROR [django.request:224] Internal Server Error: /addlike/60c7b37a6415dbada44764d0
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/mongoengine/queryset/base.py", line 266, in get
+    result = next(queryset)
+  File "/usr/local/lib/python3.8/site-packages/mongoengine/queryset/base.py", line 1572, in __next__
+    raw_doc = next(self._cursor)
+  File "/usr/local/lib/python3.8/site-packages/pymongo/cursor.py", line 1215, in next
+    raise StopIteration
+StopIteration
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/code/senderos/views.py", line 237, in addlike
+    sendero= Sendero.objects.get(id=id)
+  File "/usr/local/lib/python3.8/site-packages/mongoengine/queryset/base.py", line 269, in get
+    raise queryset._document.DoesNotExist(msg)
+senderos.models.DoesNotExist: Sendero matching query does not exist.
+ERROR [django.server:161] "GET /addlike/60c7b37a6415dbada44764d0 HTTP/1.1" 500 73642
+ERROR [django.server:161] "GET /addlike/60c7b37a6415dbada44764d0 HTTP/1.1" 500 73642
+ERROR [django.server:142] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+ERROR [django.server:142] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+ERROR [django.server:142] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+ERROR [django.server:142] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+ERROR [django.server:142] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+ERROR [django.server:142] You're accessing the development server over HTTPS, but it only supports HTTP.
+
