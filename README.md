@@ -1,5 +1,7 @@
 # SSBW
 
+![](mii_ssbw_icon.png)
+
 Web application for the management of walking routes.
 
 It is made with:
